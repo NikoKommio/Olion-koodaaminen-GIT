@@ -7,25 +7,33 @@ public class Main {
 		
 		Pesukone olio1 = new Pesukone();
 		
-		olio1.kaynnista();
+		olio1.kaynnista(3);
 		
 
 	}
 
 } // Main - luokan lopetus
 
-class Pesukone{
-	Scanner input = new Scanner(System.in);
-	String ohjelma1 = "puuvillapesu";
-	String ohjelma2 = "vauvan vaatteet";
-	int lampotila1 = 40;
-	int lampotila2 = 30;
+class Pesukone {
 	
-	public void kaynnista()
+	String ohjelma;
+	int lampotila;
+	
+	public void kaynnista(int numero)
 	{
-		System.out.println("Pesukone käynnistetty");
-		System.out.println();
-		kaynnistaOhjelma();
+		if (numero < 1 || numero > 3)
+		{
+			System.out.println("Invalid number");
+		}
+		else if (numero == 1) 
+		{
+			System.out.println("Pesukone käynnistetty");
+		}
+		else if (numero == 2)
+		{
+			System.out.println("Pesukone sammutettu");
+		}
+		
 	}
 	
 	public void kaynnistaOhjelma()
