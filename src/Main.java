@@ -6,39 +6,56 @@ public class Main {
 		
 		Scanner input = new Scanner(System.in);
 		
-		System.out.println("Käynnistä pesukone valitsemalla 1 tai 2");
+		System.out.println("Käynnistä pesukone valitsemalla 1");
 		int kaynnista = Integer.parseInt(input.nextLine());
 		
+		// Creates an object with one parameter
 		Pesukone olio1 = new Pesukone(kaynnista);
 		
+		// Checks if you want to start the machine
+		if (kaynnista == 1)
+		{
+			olio1.kaynnista();
+			
+			System.out.println("\nValitse ohjelma 1 (Puuvilla) tai 2 (Kirjopesu)");
+			int ohjelma = Integer.parseInt(input.nextLine());
+			
+			// Saves the input to the class
+			olio1.ohjelma = ohjelma;
+			
+			// Invokes the method with parameter which we got from the input
+			olio1.valitseOhjelma(ohjelma);
+			
+			// Asks the input for the temperature
+			System.out.println("\nValitse lämpötila 1 (30°) tai 2 (40°)");
+			int lampotila = Integer.parseInt(input.nextLine());
+			
+			olio1.lampotila = lampotila;
 		
-		olio1.kaynnista();
-		int ohjelma = input.nextInt();
-		olio1.ohjelma = ohjelma;
-		
-		olio1.valitseOhjelma(ohjelma);
-		
-		
-		int lampotila = input.nextInt();
-		olio1.lampotila = lampotila;
-	
-		olio1.valitseLampotila(lampotila);
-		
-		olio1.kaynnistaOhjelma();
+			olio1.valitseLampotila(lampotila);
+			olio1.tulostaTiedot();
+		}
+		else
+		{
+			System.out.println("Pesukone sammutettu");
+		}
 		
 		
 		input.close();
 
 	}
 
-} // Main - luokan lopetus
+} // Main - End of the class
 
 class Pesukone {
 	
+	// Attributes
 	public int kaynnista;
-	int ohjelma;
-	int lampotila;
+	public int ohjelma;
+	public int lampotila;
 	
+	
+	// Default constructor
 	public Pesukone()
 	{
 		kaynnista = 0;
@@ -46,37 +63,26 @@ class Pesukone {
 		lampotila = 0;
 	}
 	
+	// Parameterized constructor with one parameter
 	public Pesukone (int kaynnista)
 	{
 		this.kaynnista = kaynnista;
 	}
 	
+	// Parameterized constructor with two parameters 
 	public Pesukone(int ohjelma, int lampotila)
 	{
 		this.ohjelma = ohjelma;
 		this.lampotila = lampotila;
 	}
 	
+	// Method that starts the machine
 	public void kaynnista()
 	{
-		if (kaynnista < 1 || kaynnista > 2)
-		{
-			System.out.println("Invalid number");
-		}
-		else if (kaynnista == 1) 
-		{
 			System.out.println("Pesukone käynnistetty ♪♫♪♫");
-			System.out.println("Valitse ohjelma kirjoittamalla '1' tai '2' ");
-			System.out.println("Ohjelma 1 = puuvillapesu");
-			System.out.println("Ohjelma 2 = vauvan vaatteet");
-		}
-		else if (kaynnista == 2)
-		{
-			System.out.println("Pesukone sammutettu ♪♫♪♫");
-		}
-		
 	}
 	
+	// Method that prints out the selected program
 	public void valitseOhjelma(int ohjelma)
 	{
 	
@@ -86,18 +92,17 @@ class Pesukone {
 		}
 		else if (ohjelma == 1)
 		{
-			System.out.println("Valittu ohjelma on puuvillapesu.");
-			System.out.println("Valitse lämpötila kirjoittamalla 1 tai 2\nLämpötila 1 = 30°\nLämpötila 2 = 40°");
+			System.out.println("Valittu ohjelma on puuvilla.");
 		}
 		else if (ohjelma == 2)
 		{
-			System.out.println("Valittu ohjelma on vauvan vaatteet.");
-			System.out.println("Valitse lämpötila kirjoittamalla 1 tai 2");
+			System.out.println("Valittu ohjelma on kirjopesu.");
 		}
 		
 		
 	}
 	
+	// Method that takes one parameter and prints out selected temperature
 	public void valitseLampotila(int lampotila)
 	{
 			
@@ -114,15 +119,37 @@ class Pesukone {
 			System.out.println("Valittu lämpötila on 40°");
 		}
 		
-		//System.out.println("Valintasi ovat " + lampotila);
-		// HALUSIN TULOSTAA MINKÄ OHJELMAN SE LÄHTEE TEKEMÄÄN MUTTA EN ONNISTUNUT tähän hätään
 	}
 	
-	void kaynnistaOhjelma() 
+	// Prints out the choices user made
+	public void tulostaTiedot()
 	{
-			System.out.println("Ohjelma " + ohjelma + " käynnistyy. Lämpötila on " + this.lampotila);
-	}
+		int i = ohjelma;
+		String pesu = Integer.toString(i);
+		int j = lampotila;
+		String lampo = Integer.toString(j);
 		
+		if (ohjelma == 1)
+		{
+			pesu = "puuvilla";
+		}
+		else if (ohjelma == 2)
+		{
+			pesu = "kirjopesu";
+		}
+		
+		if (lampotila == 1)
+		{
+			lampo = "30°";
+		}
+		else if (lampotila == 2)
+		{
+			lampo = "40°";
+		}
+		System.out.println("-------------------------");
+		System.out.println("Valittu ohjelma: " + pesu);
+		System.out.println("Valittu lämpötila: " + lampo);
+	}
 	
 	
 }
