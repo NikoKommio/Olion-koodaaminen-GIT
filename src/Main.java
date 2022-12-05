@@ -14,11 +14,14 @@ public class Main {
 		
 		olio1.kaynnista();
 		int ohjelma = input.nextInt();
-		
 		olio1.ohjelma = ohjelma;
 		
 		olio1.valitseOhjelma(ohjelma);
+		
+		
 		int lampotila = input.nextInt();
+		olio1.lampotila = lampotila;
+	
 		olio1.valitseLampotila(lampotila);
 		
 		olio1.kaynnistaOhjelma();
@@ -40,7 +43,7 @@ class Pesukone {
 	{
 		kaynnista = 0;
 		ohjelma = 0;
-		ohjelma = 0;
+		lampotila = 0;
 	}
 	
 	public Pesukone (int kaynnista)
@@ -97,20 +100,18 @@ class Pesukone {
 	
 	public void valitseLampotila(int lampotila)
 	{
-		String lampotila1 = "30°";
-		String lampotila2 = "40°";
-		
+			
 		if (lampotila < 1 || lampotila > 3)
 		{
 			System.out.println("Invalid number");
 		}
 		else if (lampotila == 1)
 		{
-			System.out.println("Valittu lämpötila on " + lampotila1 + ".");
+			System.out.println("Valittu lämpötila on 30°");
 		}
 		else if (lampotila == 2) 
 		{
-			System.out.println("Valittu lämpötila on " + lampotila2 + ".");
+			System.out.println("Valittu lämpötila on 40°");
 		}
 		
 		//System.out.println("Valintasi ovat " + lampotila);
@@ -119,8 +120,9 @@ class Pesukone {
 	
 	void kaynnistaOhjelma() 
 	{
-			System.out.println("Ohjelma " + ohjelma + " käynnistyy. Lämpötila on " + lampotila);
+			System.out.println("Ohjelma " + ohjelma + " käynnistyy. Lämpötila on " + this.lampotila);
 	}
 		
+	
 	
 }
