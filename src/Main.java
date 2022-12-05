@@ -37,7 +37,7 @@ public class Main {
 		}
 		else
 		{
-			System.out.println("Pesukone sammutettu");
+			System.out.println("Pesukone sammutettu. ♫♪");
 		}
 		
 		
