@@ -103,7 +103,7 @@ class Pesukone {
 	
 		if (ohjelma < 1 || ohjelma > 2)
 		{
-			System.out.println("Invalid number");
+			System.out.println("Epäkelpoinen numero");
 		}
 		else if (ohjelma == 1)
 		{
@@ -123,7 +123,7 @@ class Pesukone {
 			
 		if (lampotila < 1 || lampotila > 3)
 		{
-			System.out.println("Invalid number");
+			System.out.println("Epäkelpoinen numero");
 		}
 		else if (lampotila == 1)
 		{
