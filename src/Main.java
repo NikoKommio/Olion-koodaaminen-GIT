@@ -10,7 +10,7 @@ public class Main {
 		int kaynnista = Integer.parseInt(input.nextLine());
 		
 		// Creates an object with one parameter
-		Pesukone olio1 = new Pesukone(kaynnista);
+		Pesukone olio1 = new Pesukone("LG", kaynnista);
 		
 		// Checks if you want to start the machine
 		if (kaynnista == 1)
@@ -50,6 +50,7 @@ public class Main {
 class Pesukone {
 	
 	// Attributes
+	public String merkki;
 	public int kaynnista;
 	public int ohjelma;
 	public int lampotila;
@@ -58,14 +59,16 @@ class Pesukone {
 	// Default constructor
 	public Pesukone()
 	{
+		merkki = "";
 		kaynnista = 0;
 		ohjelma = 0;
 		lampotila = 0;
 	}
 	
 	// Parameterized constructor with one parameter
-	public Pesukone (int kaynnista)
+	public Pesukone (String merkki, int kaynnista)
 	{
+		this.merkki = merkki;
 		this.kaynnista = kaynnista;
 	}
 	
@@ -79,7 +82,7 @@ class Pesukone {
 	// Method that starts the machine
 	public void kaynnista()
 	{
-			System.out.println("Pesukone käynnistetty ♪♫♪♫");
+			System.out.println(merkki + " merkkinen pesukoneesi käynnistetty ♪♫♪♫");
 	}
 	
 	// Method that prints out the selected program
