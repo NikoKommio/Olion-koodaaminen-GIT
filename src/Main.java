@@ -34,6 +34,18 @@ public class Main {
 		
 			olio1.valitseLampotila(lampotila);
 			olio1.tulostaTiedot();
+			
+			System.out.println("\nKäynnistä pesu valitsemalla 1");
+			int pesu = Integer.parseInt(input.nextLine());
+			if (pesu == 1)
+			{
+			olio1.kaynnistaPesu();
+			}
+			else
+			{
+				System.out.println("Pesukone sammutettu. ♫♪");
+			}
+			
 		}
 		else
 		{
@@ -82,7 +94,7 @@ class Pesukone {
 	// Method that starts the machine
 	public void kaynnista()
 	{
-			System.out.println(merkki + " merkkinen pesukoneesi käynnistetty ♪♫♪♫");
+			System.out.println(merkki + " merkkinen pesukoneesi on käynnistetty ♪♫♪♫");
 	}
 	
 	// Method that prints out the selected program
@@ -152,6 +164,11 @@ class Pesukone {
 		System.out.println("-------------------------");
 		System.out.println("Valittu ohjelma: " + pesu);
 		System.out.println("Valittu lämpötila: " + lampo);
+	}
+	
+	public void kaynnistaPesu()
+	{
+		System.out.println("Pesu käynnistetty valitsemillasi arvoilla.");
 	}
 	
 	
